@@ -160,7 +160,7 @@ export const appointmentsTableRelations = relations(
   }),
 );
 
-export const sessionsTable = pgTable("session", {
+export const sessionsTable = pgTable("sessions", {
   id: text("id").primaryKey(),
   expiresAt: timestamp("expires_at").notNull(),
   token: text("token").notNull().unique(),
@@ -173,7 +173,7 @@ export const sessionsTable = pgTable("session", {
     .references(() => usersTable.id, { onDelete: "cascade" }),
 });
 
-export const accountsTable = pgTable("account", {
+export const accountsTable = pgTable("accounts", {
   id: text("id").primaryKey(),
   accountId: text("account_id").notNull(),
   providerId: text("provider_id").notNull(),
@@ -191,7 +191,7 @@ export const accountsTable = pgTable("account", {
   updatedAt: timestamp("updated_at").notNull(),
 });
 
-export const verificationsTable = pgTable("verification", {
+export const verificationsTable = pgTable("verifications", {
   id: text("id").primaryKey(),
   identifier: text("identifier").notNull(),
   value: text("value").notNull(),
